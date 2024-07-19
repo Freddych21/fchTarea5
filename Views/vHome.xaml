@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="fchTarea5.Views.vHome"
+             Title="vHome">
+    <ScrollView>
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="15">
+            <Label Text="Datos del Colaborador"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"
+                   FontSize="20"/>
+            <Entry x:Name="txtNombre"
+                   Placeholder="Ingrese un nombre"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button x:Name="btnInsertar"
+                        Text="Agregar"
+                        Grid.Column="0"
+                        Clicked="btnInsertar_Clicked"
+                        Margin="0,0,5,0"/>
+                <Button x:Name="btnActualizar"
+                        Text="Actualizar"
+                        Grid.Column="1"
+                        Clicked="btnActualizar_Clicked"
+                        IsEnabled="False"
+                        Margin="0,0,5,0"/>
+                <Button x:Name="btnEliminar"
+                        Text="Eliminar"
+                        Grid.Column="2"
+                        Clicked="btnEliminar_Clicked"
+                        IsEnabled="False"/>
+            </Grid>
+            <Label x:Name="lblStatus" />
+            <Grid Margin="0,25,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="#"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Nombre" Grid.Column="1"
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+
+            </Grid>
+            <ListView x:Name="listViewPerson" ItemSelected="listViewPerson_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}"  Grid.Column="0"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Nombre}" Grid.Column="1"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Start"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>    
+</ContentPage>
